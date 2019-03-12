@@ -33,15 +33,25 @@ object Util {
     val result = util.Random.nextInt
     () => result
   }
+
+  def addWithoutSyntacticSugar(x: Int) = {
+    new Function1[Int, Int]() {
+      def apply(y: Int): Int = x + y
+    }
+  }
+
+  def tailer(l: List[Int]): List[Int] = {
+    l.tail
+  }
+
+  def setty(s: Set[Any], el: Any): Boolean = {
+    s(el)
+  }
 }
 
 object Main extends App {
-  val result1 = Util.randInt()
-  val result2 = Util.randInt()
-  val result3 = Util.randInt()
-  println(result1)
-  println(result2)
-  println(result3)
+  val result = Util.folder(None)
+  println(result)
 }
 
 
